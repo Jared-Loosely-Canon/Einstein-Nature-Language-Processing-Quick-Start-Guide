@@ -1,0 +1,43 @@
+{
+  "id": 1337437,
+  "name": "case_routing_intent.csv",
+  "createdAt": "2022-05-21T09:46:31.000+0000",
+  "updatedAt": "2022-05-21T09:46:32.000+0000",
+  "labelSummary": {
+    "labels": [
+      {
+        "id": 0,
+        "datasetId": 1337437,
+        "name": "Shipping Info",
+        "numExamples": 30
+      },
+      {
+        "id": 1,
+        "datasetId": 1337437,
+        "name": "Sales Opportunity",
+        "numExamples": 44
+      },
+      {
+        "id": 2,
+        "datasetId": 1337437,
+        "name": "Order Change",
+        "numExamples": 26
+      },
+      {
+        "id": 3,
+        "datasetId": 1337437,
+        "name": "Password Help",
+        "numExamples": 26
+      },
+      { "id": 4, "datasetId": 1337437, "name": "Billing", "numExamples": 24 }
+    ]
+  },
+  "totalExamples": 150,
+  "totalLabels": 5,
+  "available": true,
+  "statusMsg": "SUCCEEDED",
+  "type": "text-intent",
+  "language": "en_US",
+  "numOfDuplicates": 0,
+  "object": "dataset"
+}

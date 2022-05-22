@@ -1,0 +1,35 @@
+Steps to use Einstein Intent NLP API
+
+Token: <Your Token>
+DataSetId: <Your DataId>
+ModelId : <Your ModelId>
+
+1. Get a Key for your org
+2. Connect the key with the Intent API
+3. Host the data on a path in JSON, CSV, or TSV
+4. POST the data to the API
+
+curl -X POST -H "Authorization: Bearer <TOKEN>" -H "Cache-Control: no-cache" -H "Content-Type: multipart/form-data" -F "type=text-intent" -F "path=https://einstein.ai/text/case_routing_intent.csv" https://api.einstein.ai/v2/language/datasets/upload
+
+Path=where your data is on the web
+
+5. GET the status periodically until it is done processing the data
+
+Unaltered Script
+curl -X GET -H "Authorization: Bearer <TOKEN>" -H "Cache-Control: no-cache" https://api.einstein.ai/v2/language/datasets/<DATASET_ID>
+
+DATASET_ID = the ID from your post request with the data set you upload
+
+6. Train the model
+
+curl -X POST -H "Authorization: Bearer <TOKEN>" -H "Cache-Control: no-cache" -H "Content-Type: multipart/form-data" -F "name=Service Request Routing Model" -F "datasetId=<DATASET_ID>" https://api.einstein.ai/v2/language/train
+
+7. Note the Model Id
+
+8. Check the Model Training Status
+
+curl -X GET -H "Authorization: Bearer <TOKEN>" -H "Cache-Control: no-cache" https://api.einstein.ai/v2/language/train/<MODEL_ID>
+
+9. Utilize the Model
+
+curl -X POST -H "Authorization: Bearer <TOKEN>" -H "Cache-Control: no-cache" -H "Content-Type: multipart/form-data" -F "modelId=<MODEL_ID>" -F "document=I'd like to buy some shoes" https://api.einstein.ai/v2/language/intent
